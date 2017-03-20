@@ -11,6 +11,15 @@
 
     <artifactId>course-parent</artifactId>
     <name>Kalix AR AdminTeacher Course Parent</name>
+    <modules>
+        <module>ar-adminteacher-course-entities</module>
+        <module>ar-adminteacher-course-api</module>
+        <module>ar-adminteacher-course-dao</module>
+        <module>ar-adminteacher-course-biz</module>
+        <module>ar-adminteacher-course-dto</module>
+        <module>ar-adminteacher-course-extjs</module>
+        <module>ar-adminteacher-course-rest</module>
+    </modules>
     <packaging>pom</packaging>
 
 </project>

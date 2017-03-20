@@ -52,19 +52,28 @@ Ext.define('kalix.adminteacher.teacher.model.UserModel', {
       defaultValue: 1
     },
     {
-      name: 'address'
+      name: 'positionalTitles'
     },
     {
-      name: 'education'
+      name: 'resume'
     },
     {
       name: 'introduction'
     },
     {
-      name: 'nickname'
+      name: 'learning'
     },
     {
-      name: 'skills'
+      name: 'teaching'
+    },
+    {
+      name: 'coursesSkills'
+    },
+    {
+      name: 'unit'
+    },
+    {
+      name: 'preliminary'
     },
   ]
 });

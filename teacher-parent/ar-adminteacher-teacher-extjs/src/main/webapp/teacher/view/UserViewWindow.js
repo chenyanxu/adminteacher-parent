@@ -46,14 +46,14 @@ Ext.define('kalix.adminteacher.teacher.view.UserViewWindow', {
                     value: '{rec.mobile}'
                 }
             }, {
-                fieldLabel: '所在地',
+                fieldLabel: '职称',
                 bind: {
-                    value: '{rec.address}'
+                    value: '{rec.positionalTitles}'
                 }
             }, {
-                fieldLabel: '教育经历',
+                fieldLabel: '个人简历',
                 bind: {
-                    value: '{rec.education}'
+                    value: '{rec.resume}'
                 }
             }, {
                 fieldLabel: '个人说明',
@@ -61,14 +61,29 @@ Ext.define('kalix.adminteacher.teacher.view.UserViewWindow', {
                     value: '{rec.introduction}'
                 }
             }, {
-                fieldLabel: '昵称',
+                fieldLabel: '学术研究',
                 bind: {
-                    value: '{rec.nickname}'
+                    value: '{rec.learning}'
                 }
             }, {
-                fieldLabel: '擅长技能',
+                fieldLabel: '教学情况',
                 bind: {
-                    value: '{rec.skills}'
+                    value: '{rec.teaching}'
+                }
+            }, {
+                fieldLabel: '擅长课程',
+                bind: {
+                    value: '{rec.coursesSkills}'
+                }
+            }, {
+                fieldLabel: '所在单位',
+                bind: {
+                    value: '{rec.unit}'
+                }
+            }, {
+                fieldLabel: '预备知识',
+                bind: {
+                    value: '{rec.preliminary}'
                 }
             }, {
                 xtype: 'combobox',
