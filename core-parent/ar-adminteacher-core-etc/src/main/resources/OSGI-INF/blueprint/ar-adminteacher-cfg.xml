@@ -9,7 +9,7 @@
     </bean>
     <service  interface="org.osgi.service.cm.ManagedService" ref="teacherApplicationConfig">
         <service-properties>
-            <entry key="service.pid" value="ConfigAdminTeacherApp"/>
+            <entry key="service.pid" value="config.adminteacher.app"/>
         </service-properties>
     </service>
 
