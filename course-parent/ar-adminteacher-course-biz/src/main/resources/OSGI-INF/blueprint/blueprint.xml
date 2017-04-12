@@ -6,6 +6,7 @@
     <tx:enable-annotations/>
 
     <reference id="courseTypeBeanDao" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseTypeBeanDao"/>
+    <reference id="courseBeanDao" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseBeanDao"/>
 
     <!--课程类型服务注册-->
     <bean id="courseTypeBeanServiceImpl" class="com.kalix.ar.adminteacher.course.biz.CourseTypeBeanServiceImpl">
@@ -13,6 +14,14 @@
     </bean>
     <service id="courseTypeBeanService" ref="courseTypeBeanServiceImpl"
              interface="com.kalix.ar.adminteacher.course.api.biz.ICourseTypeBeanService"/>
+
+    <!--课程服务注册-->
+    <bean id="courseBeanServiceImpl" class="com.kalix.ar.adminteacher.course.biz.CourseBeanServiceImpl">
+        <property name="dao" ref="courseBeanDao"/>
+        <property name="courseTypeBeanService" ref="courseTypeBeanServiceImpl"/>
+    </bean>
+    <service id="courseBeanService" ref="courseBeanServiceImpl"
+             interface="com.kalix.ar.adminteacher.course.api.biz.ICourseBeanService"/>
 
 </blueprint>
 

@@ -10,14 +10,12 @@
         <property name="rests">
             <list>
                 <bean class="com.kalix.framework.core.api.camel.CustomRest">
-                    <!--<property name="path" value="/coursetypes/tree"/>-->
                     <property name="path" value="/coursetypes"/>
                     <property name="getDescription" value="查询全部课程类型(树状结构)"/>
                     <property name="getOutType" value="com.kalix.ar.adminteacher.course.dto.model.CourseTypeDTO"/>
                     <property name="getToUri" value="bean:coursetypeService?method=getAllCourseType()"/>
                 </bean>
                 <bean class="com.kalix.framework.core.api.camel.CustomRest">
-                    <!--<property name="path" value="/coursetypes/tree/{id}"/>-->
                     <property name="path" value="/coursetypes/{id}"/>
                     <property name="getDescription" value="查询指定id下的全部课程类型(树状结构)"/>
                     <property name="getParams" value="id:path:long::课程类型"/>

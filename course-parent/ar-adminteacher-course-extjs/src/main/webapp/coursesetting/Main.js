@@ -5,13 +5,13 @@
 Ext.define('kalix.adminteacher.coursesetting.Main', {
     extend: 'kalix.view.components.common.AutoHPanel',
     requires: [
-        /*'kalix.admin.duty.controller.DutyController',*/
+        'kalix.adminteacher.coursesetting.controller.CourseSettingController',
         'kalix.adminteacher.coursetype.view.CourseTypeTreeList',
         'kalix.adminteacher.coursesetting.view.CourseSettingGrid',
         'kalix.container.BaseTreeContainer'
     ],
     xtype: 'courseSettingPanel',
-    /*controller: 'courseSettingController',*/
+    controller: 'courseSettingController',
     items: [
         {
             xtype:'baseTreeContainer',
@@ -23,10 +23,10 @@ Ext.define('kalix.adminteacher.coursesetting.Main', {
                 xtype: 'courseTypeTreeList',
                 title:'',
                 iconCls:'',
-                /*reference:'dutyOrgTreeList',*/
-                /*listeners: {
+                reference:'courseAndTypeTreeList',
+                listeners: {
                     itemClick: 'onItemClick'
-                },*/
+                },
                 tbar:null,
             }
         },

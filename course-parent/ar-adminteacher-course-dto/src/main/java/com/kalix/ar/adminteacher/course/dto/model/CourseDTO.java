@@ -1,33 +1,20 @@
-package com.kalix.ar.adminteacher.course.entities;
+package com.kalix.ar.adminteacher.course.dto.model;
 
+import com.kalix.framework.core.api.web.model.BaseDTO;
 
-import com.kalix.framework.core.api.annotation.KalixCascade;
-import com.kalix.framework.core.api.annotation.TableCascade;
-import com.kalix.framework.core.api.persistence.PersistentEntity;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * @类描述：课程管理-课程设置
- * @创建人：hqj
- * @创建时间：2017-03-20
- * @修改人：
- * @修改时间：
- * @修改备注：
+ * 课程模型类
+ * @author hqj date:2017-4-11
+ * @version 1.0.0
  */
-//todo 修改模型定义
-@Entity
-@Table(name = "adminteacher_course")
-@TableCascade(kalixCascades = {
-        @KalixCascade(beans = "com.kalix.ar.adminteacher.course.entities.CourseTypeBean", deletable = true, foreignKey = "coursetypeid")
-})
-public class CourseBean extends PersistentEntity {
-    @Column(name="coursetypeid")
+public class CourseDTO extends BaseDTO {
     private Long coursetypeid;      //所属类别
-    private String name;             //课程名称
+    private String coursetypename;  //所属类别名称
+    private String coursetypecode;  //所属类别代码
+    private String name;            //课程名称
     private String evaluate;        //课程总体评价
     private Double expense;         //费用
     private String introduction;   //简介
@@ -37,11 +24,11 @@ public class CourseBean extends PersistentEntity {
     private Long status;           //课程状态
     private String suitCrowds;    //适合人群
     private String syllabus;      //课程大纲及其预览
-
     private Long teacherid;       //授课教师id
 
-    @Transient
-    private Long studentid;       //学生id
+    private Long createbyid;
+    private Long updatebyid;
+    private Long version_;
 
     public Long getCoursetypeid() {
         return coursetypeid;
@@ -49,6 +36,22 @@ public class CourseBean extends PersistentEntity {
 
     public void setCoursetypeid(Long coursetypeid) {
         this.coursetypeid = coursetypeid;
+    }
+
+    public String getCoursetypename() {
+        return coursetypename;
+    }
+
+    public void setCoursetypename(String coursetypename) {
+        this.coursetypename = coursetypename;
+    }
+
+    public String getCoursetypecode() {
+        return coursetypecode;
+    }
+
+    public void setCoursetypecode(String coursetypecode) {
+        this.coursetypecode = coursetypecode;
     }
 
     public String getName() {
@@ -139,11 +142,27 @@ public class CourseBean extends PersistentEntity {
         this.teacherid = teacherid;
     }
 
-    public Long getStudentid() {
-        return studentid;
+    public Long getCreatebyid() {
+        return createbyid;
     }
 
-    public void setStudentid(Long studentid) {
-        this.studentid = studentid;
+    public void setCreatebyid(Long createbyid) {
+        this.createbyid = createbyid;
+    }
+
+    public Long getUpdatebyid() {
+        return updatebyid;
+    }
+
+    public void setUpdatebyid(Long updatebyid) {
+        this.updatebyid = updatebyid;
+    }
+
+    public Long getVersion_() {
+        return version_;
+    }
+
+    public void setVersion_(Long version_) {
+        this.version_ = version_;
     }
 }

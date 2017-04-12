@@ -5,7 +5,6 @@
 Ext.define('kalix.adminteacher.coursetype.model.CourseTypeModel', {
     extend: 'kalix.model.BaseModel',
     fields: [
-        {name: 'id', type: 'int'},
         {name: 'name', type: 'string'}
     ]
 });

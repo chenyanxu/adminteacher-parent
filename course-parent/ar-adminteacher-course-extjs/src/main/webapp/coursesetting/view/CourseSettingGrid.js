@@ -6,20 +6,21 @@
  */
 Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
   extend: 'kalix.view.components.common.BaseGrid',
-  /*requires: [
-    'kalix.admin.duty.store.DutyStore',
-    'kalix.admin.duty.controller.DutyGridController'
-  ],*/
+  requires: [
+    'kalix.adminteacher.coursesetting.store.CourseSettingStore',
+    'kalix.adminteacher.coursesetting.controller.CourseSettingGridController'
+  ],
   alias: 'widget.courseSettingGrid',
   xtype: 'courseSettingGridPanel',
-  /*store: {
-    type: 'dutyStore'
-  },*/
-  /*controller: {
-    type: 'dutyGridController',
-    cfgForm: 'kalix.admin.duty.view.DutyWindow',
-    cfgModel: 'kalix.admin.duty.model.DutyModel'
-  },*/
+  store: {
+    type: 'courseSettingStore'
+  },
+  controller: {
+    type: 'courseSettingGridController',
+    cfgForm: 'kalix.adminteacher.coursesetting.view.CourseSettingWindow',
+    cfgViewForm: 'kalix.adminteacher.coursesetting.view.CourseSettingViewWindow',
+    cfgModel: 'kalix.adminteacher.coursesetting.model.CourseSettingModel'
+  },
   autoLoad: false,
   columns: {
     defaults: {flex: 1, renderer: 'addTooltip'},
@@ -33,11 +34,10 @@ Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
         renderer: this.update
       },
       {text: '编号', dataIndex: 'id', hidden: true},
-      {text: '职务名称', dataIndex: 'name'},
-      {text: '职务描述', dataIndex: 'comment'},
+      {text: '课程名称', dataIndex: 'name'},
+      {text: '课程总体评价', dataIndex: 'evaluate'},
       {
-        text: '所属机构',
-        renderer: 'onOrgColumnRender'
+        text: '所属课程类型',dataIndex: 'coursetypename'
       },
       {text: '创建人', dataIndex: 'createBy'},
       {
@@ -46,6 +46,12 @@ Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
       {
         xtype: 'securityGridColumnCommon',
         verifyItems: [
+          {
+            iconCls: "iconfont icon-view-column",
+            permission: 'view',
+            tooltip: '查看',
+            handler: 'onView'
+          },
           {
             iconCls: 'iconfont icon-edit-column',
             permission: 'edit',
@@ -57,10 +63,10 @@ Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
             tooltip: '删除',
             handler: 'onDelete'
           }, {
-            iconCls: 'iconfont icon-add-user-column',
-            permission: 'addUser',
-            tooltip: '添加用户',
-            handler: 'onAddUser'
+            iconCls: 'iconfont icon-attachment-column',
+            permission: 'coursewareManage',
+            tooltip: '课件管理',
+            handler: 'onCoursewareManage'
           }
         ]
       }]
@@ -70,7 +76,7 @@ Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
     verifyItems: [
       {
         text: '添加',
-        tooltip: '添加职务',
+        tooltip: '添加课程',
         xtype: 'button',
         permission: 'add',
         iconCls: 'iconfont icon-add',
@@ -78,5 +84,4 @@ Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
       }
     ]
   }
-
 });

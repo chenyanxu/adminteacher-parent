@@ -29,7 +29,42 @@ Ext.define('kalix.adminteacher.coursetype.controller.CourseTypeFormController', 
         }
 
         if (validate) {
-            this.callParent(arguments);
+            this.onSave1();
+        }
+    },
+    onSave1: function () {
+        var form = this.getView();
+        var me = this.getView();
+        var vm = form.lookupViewModel();
+
+        if (0 == vm.get('rec').get('id')) {
+            form.getForm().method = 'POST';
+        }
+        else {
+            form.getForm().method = 'PUT';
+            form.getForm().url=form.getForm().url+'/'+ vm.get('rec').get('id');
+        }
+
+        if (form.isValid()) {
+            form.submit({
+                success: function (form, action) {
+                    if (action.result.failure) {
+                        Ext.MessageBox.alert(CONFIG.ALTER_TITLE_FAILURE, action.result.msg);
+                        return;
+                    }
+                    kalix.Notify.success(action.result.msg, CONFIG.ALTER_TITLE_SUCCESS);
+
+                    var tree = vm.get('rec').get('tree');
+                    var store = tree.getStore();
+
+                    store.reload();
+
+                    vm.get('win').close()
+                },
+                failure: function (form, action) {
+                    Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, action.result.msg);
+                }
+            });
         }
     }
 });

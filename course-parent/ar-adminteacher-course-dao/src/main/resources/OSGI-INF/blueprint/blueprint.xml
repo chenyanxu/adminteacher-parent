@@ -7,13 +7,19 @@
     <jpa:enable/>
     <tx:enable-annotations/>
 
-    <!--用户dao-->
-    <service id="courseTypeBeanDao" ref="courseTypeBeanDaoImpl" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseTypeBeanDao"/>
-
-    <bean id="courseTypeBeanDaoImpl"
-          class="com.kalix.ar.adminteacher.course.dao.CourseTypeBeanDaoImpl"> <!--init-method="init">-->
+    <!-- 课程类型Dao -->
+    <bean id="courseTypeBeanDaoImpl" class="com.kalix.ar.adminteacher.course.dao.CourseTypeBeanDaoImpl"> <!--init-method="init">-->
         <tx:transaction method="*" value="Required"/>
     </bean>
+    <service id="courseTypeBeanDao" ref="courseTypeBeanDaoImpl" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseTypeBeanDao"/>
 
+    <!-- 课程Dao -->
+    <bean id="courseBeanDaoImpl" class="com.kalix.ar.adminteacher.course.dao.CourseBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service id="courseBeanDao" ref="courseBeanDaoImpl" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseBeanDao"/>
+
+    <!--<bean id="dutyUserBeanDaoImpl" class="com.kalix.admin.duty.dao.DutyUserBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>-->
 </blueprint>
-
