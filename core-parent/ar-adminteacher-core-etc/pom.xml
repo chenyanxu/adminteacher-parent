@@ -46,9 +46,9 @@
                         <configuration>
                             <artifacts>
                                 <artifact>
-                                    <file>target/classes/ConfigAdminTeacherApp.cfg</file>
+                                    <file>target/classes/config.adminteacher.app.cfg</file>
                                     <type>cfg</type>
-                                    <classifier>ConfigAdminTeacherApp</classifier>
+                                    <classifier>config.adminteacher.app</classifier>
                                 </artifact>
                             </artifacts>
                         </configuration>
