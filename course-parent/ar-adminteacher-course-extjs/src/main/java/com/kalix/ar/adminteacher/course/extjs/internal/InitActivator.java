@@ -25,6 +25,7 @@ public class InitActivator extends KalixBundleActivator {
             httpService.registerResources(contextPath + "/app/adminteacher/coursetype", "/min/coursetype", null);
             httpService.registerResources(contextPath + "/app/adminteacher/coursesetting", "/min/coursesetting", null);
             httpService.registerResources(contextPath + "/app/adminteacher/course", "/min/course", null);
+            httpService.registerResources(contextPath + "/app/adminteacher/courseware", "/min/courseware", null);
             //httpService.registerResources(contextPath + "/adminteacher/resources/images", "/min/resources/images", null);
         }
         else
@@ -32,6 +33,7 @@ public class InitActivator extends KalixBundleActivator {
             httpService.registerResources(contextPath + "/app/adminteacher/coursetype", "/coursetype", null);
             httpService.registerResources(contextPath + "/app/adminteacher/coursesetting", "/coursesetting", null);
             httpService.registerResources(contextPath + "/app/adminteacher/course", "/course", null);
+            httpService.registerResources(contextPath + "/app/adminteacher/courseware", "/courseware", null);
             //httpService.registerResources(contextPath + "/adminteacher/resources/images", "/resources/images", null);
         }
     }
@@ -46,6 +48,7 @@ public class InitActivator extends KalixBundleActivator {
             httpService.unregister(contextPath + "/app/adminteacher/coursetype");
             httpService.unregister(contextPath + "/app/adminteacher/coursesetting");
             httpService.unregister(contextPath + "/app/adminteacher/course");
+            httpService.unregister(contextPath + "/app/adminteacher/courseware");
         }
     }
 }

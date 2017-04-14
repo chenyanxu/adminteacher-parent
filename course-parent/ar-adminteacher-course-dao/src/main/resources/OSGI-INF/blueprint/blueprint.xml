@@ -19,7 +19,9 @@
     </bean>
     <service id="courseBeanDao" ref="courseBeanDaoImpl" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseBeanDao"/>
 
-    <!--<bean id="dutyUserBeanDaoImpl" class="com.kalix.admin.duty.dao.DutyUserBeanDaoImpl">
+    <!-- 课件Dao -->
+    <bean id="coursewareBeanDaoImpl" class="com.kalix.ar.adminteacher.course.dao.CoursewareBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
-    </bean>-->
+    </bean>
+    <service id="coursewareBeanDao" ref="coursewareBeanDaoImpl" interface="com.kalix.ar.adminteacher.course.api.dao.ICoursewareBeanDao"/>
 </blueprint>

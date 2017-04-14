@@ -7,6 +7,7 @@
 
     <reference id="courseTypeBeanDao" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseTypeBeanDao"/>
     <reference id="courseBeanDao" interface="com.kalix.ar.adminteacher.course.api.dao.ICourseBeanDao"/>
+    <reference id="coursewareBeanDao" interface="com.kalix.ar.adminteacher.course.api.dao.ICoursewareBeanDao"/>
 
     <!--课程类型服务注册-->
     <bean id="courseTypeBeanServiceImpl" class="com.kalix.ar.adminteacher.course.biz.CourseTypeBeanServiceImpl">
@@ -23,5 +24,10 @@
     <service id="courseBeanService" ref="courseBeanServiceImpl"
              interface="com.kalix.ar.adminteacher.course.api.biz.ICourseBeanService"/>
 
+    <!--课件服务注册-->
+    <bean id="coursewareBeanServiceImpl" class="com.kalix.ar.adminteacher.course.biz.CoursewareBeanServiceImpl">
+        <property name="dao" ref="coursewareBeanDao"/>
+    </bean>
+    <service id="coursewareBeanService" ref="coursewareBeanServiceImpl"
+             interface="com.kalix.ar.adminteacher.course.api.biz.ICoursewareBeanService"/>
 </blueprint>
-

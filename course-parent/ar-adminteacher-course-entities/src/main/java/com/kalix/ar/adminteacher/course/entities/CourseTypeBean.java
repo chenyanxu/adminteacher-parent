@@ -6,9 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * 机构实体类
- * @author majian <br/>
- *         date:2015-7-21
+ * 课程类型实体类
+ * @author hqj <br/>
+ *         date:2017-4-13
  * @version 1.0.0
  */
 @Entity

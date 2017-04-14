@@ -4,9 +4,9 @@
 Ext.define('kalix.adminteacher.coursesetting.controller.CourseSettingGridController', {
   extend: 'kalix.controller.BaseGridController',
   alias: 'controller.courseSettingGridController',
-  /*mixins: {
-   userRelation: 'kalix.adminteacher.common.relation.UserRelation'
-   },*/
+  mixins: {
+    coursewareManage: 'kalix.adminteacher.courseware.common.mixins.Courseware'
+  },
   viewModelExtraInit: function (vm) {
 
     if (0 == vm.get('rec').get('id')) {
@@ -15,6 +15,7 @@ Ext.define('kalix.adminteacher.coursesetting.controller.CourseSettingGridControl
       var selection = treePanel.selection
       vm.set('courseTypeName', selection.data.name);
       vm.get('rec').set('coursetypeid', selection.data.id);
+      vm.get('rec').modified = {coursetypeid:selection.data.id};
       vm.get('rec').dirty = false;
     }
     else {
