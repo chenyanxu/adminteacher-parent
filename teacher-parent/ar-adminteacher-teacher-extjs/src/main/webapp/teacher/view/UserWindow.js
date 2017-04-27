@@ -9,13 +9,13 @@
 Ext.define('kalix.adminteacher.teacher.view.UserWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.adminteacher.teacher.controller.UserWindowController',
+        'kalix.adminteacher.teacher.controller.UserWindowController'
     ],
     alias: 'widget.teacherUserWindow',
     controller: {
         type: 'teacherUserWindowController'
     },
-    xtype: "teacherUserWindow",
+    xtype: 'teacherUserWindow',
     width: 400,
     items: [{
         xtype: 'baseForm',
@@ -142,6 +142,7 @@ Ext.define('kalix.adminteacher.teacher.view.UserWindow', {
                 bind: {
                     value: '{rec.available}'
                 }
-            }]
+            }
+        ]
     }]
 });

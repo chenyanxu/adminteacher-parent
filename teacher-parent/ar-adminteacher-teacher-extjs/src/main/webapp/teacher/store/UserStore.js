@@ -9,6 +9,6 @@ Ext.define('kalix.adminteacher.teacher.store.UserStore', {
     model: 'kalix.adminteacher.teacher.model.UserModel',
     alias: 'store.teacherUserStore',
     xtype: 'teacherUserStore',
-    storeId: "teacherUserStore",
+    storeId: 'teacherUserStore',
     proxyUrl: CONFIG.restRoot + '/camel/rest/teachers'
 });

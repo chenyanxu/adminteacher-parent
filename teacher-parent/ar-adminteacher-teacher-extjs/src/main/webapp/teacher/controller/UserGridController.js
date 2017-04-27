@@ -61,7 +61,7 @@ Ext.define('kalix.adminteacher.teacher.controller.UserGridController', {
         }
       }
     });*/
-    kalix.Notify.success("权限信息正在构建，目前查看无效！！！", "提示信息");
+    kalix.Notify.success('权限信息正在构建，目前查看无效！！！', '提示信息');
   },
   onStartStopUsing: function (grid, rowIndex, colIndex) {
     var selModel = grid.getStore().getData().items[rowIndex];

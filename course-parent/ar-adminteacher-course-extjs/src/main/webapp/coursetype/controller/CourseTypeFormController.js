@@ -18,14 +18,14 @@ Ext.define('kalix.adminteacher.coursetype.controller.CourseTypeFormController', 
             validate = false;
 
             var fieldItem = view.items.getAt(4);
-            fieldItem.setActiveError("课程类型名称不能为空！！！");
+            fieldItem.setActiveError('课程类型名称不能为空！！！');
         }
 
         if (vm.get('rec').get('code') == null || vm.get('rec').get('code') == '') {
             validate = false;
 
             var fieldItem = view.items.getAt(5);
-            fieldItem.setActiveError("课程类型代码不能为空！！！");
+            fieldItem.setActiveError('课程类型代码不能为空！！！');
         }
 
         if (validate) {
@@ -59,7 +59,7 @@ Ext.define('kalix.adminteacher.coursetype.controller.CourseTypeFormController', 
 
                     store.reload();
 
-                    vm.get('win').close()
+                    vm.get('win').close();
                 },
                 failure: function (form, action) {
                     Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, action.result.msg);

@@ -27,7 +27,7 @@ Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
     items: [
       {
         xtype: 'rownumberer',
-        text: "行号",
+        text: '行号',
         width: 50,
         align: 'center',
         flex: 0,
@@ -47,7 +47,7 @@ Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingGrid', {
         xtype: 'securityGridColumnCommon',
         verifyItems: [
           {
-            iconCls: "iconfont icon-view-column",
+            iconCls: 'iconfont icon-view-column',
             permission: 'view',
             tooltip: '查看',
             handler: 'onView'

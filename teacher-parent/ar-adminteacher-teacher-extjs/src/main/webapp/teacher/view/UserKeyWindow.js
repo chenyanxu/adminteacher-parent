@@ -15,7 +15,7 @@ Ext.define('kalix.adminteacher.teacher.view.UserKeyWindow', {
     controller: {
         type: 'teacherUserKeyWindowController'
     },
-    xtype: "teacherUserWindow",
+    xtype: 'teacherUserWindow',
     width: 400,
     items: [{
         xtype: 'baseForm',

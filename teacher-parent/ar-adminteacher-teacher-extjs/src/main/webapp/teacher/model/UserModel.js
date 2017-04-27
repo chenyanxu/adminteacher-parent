@@ -74,6 +74,6 @@ Ext.define('kalix.adminteacher.teacher.model.UserModel', {
     },
     {
       name: 'preliminary'
-    },
+    }
   ]
 });

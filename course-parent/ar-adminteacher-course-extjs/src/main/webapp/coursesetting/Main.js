@@ -27,7 +27,7 @@ Ext.define('kalix.adminteacher.coursesetting.Main', {
                 listeners: {
                     itemClick: 'onItemClick'
                 },
-                tbar:null,
+                tbar:null
             }
         },
         {

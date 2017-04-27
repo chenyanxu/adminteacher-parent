@@ -25,7 +25,7 @@ Ext.define('kalix.adminteacher.courseware.view.CoursewareManageWindow', {
         beforeshow: function () {
             var store = this.items.getAt(0).store;
             var courseid = this.getViewModel().get('rec').id;
-            store.proxy.extraParams = {jsonStr: '{courseid:' + courseid + '}'}
+            store.proxy.extraParams = {jsonStr: '{courseid:' + courseid + '}'};
             store.load();
         }
     }

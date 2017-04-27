@@ -9,7 +9,7 @@ Ext.define('kalix.adminteacher.coursesetting.controller.CourseSettingWindowContr
         var form = target.findParentByType('form');
         var me = target.findParentByType('window');
         var store = me.viewModel.get('store');
-        var mainId = me.viewModel.get('rec').id
+        var mainId = me.viewModel.get('rec').id;
         scope={mainId:mainId,store:store};
 
         form.submit({

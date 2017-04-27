@@ -6,7 +6,7 @@
 Ext.define('kalix.adminteacher.coursesetting.view.CourseSettingViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.BaseComboBox',
+        'kalix.view.components.common.BaseComboBox'
     ],
     alias: 'widget.courseSettingViewWindow',
     xtype: 'courseSettingViewWindow',

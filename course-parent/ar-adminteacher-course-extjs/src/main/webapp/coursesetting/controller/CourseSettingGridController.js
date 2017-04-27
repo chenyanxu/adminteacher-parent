@@ -39,15 +39,7 @@ Ext.define('kalix.adminteacher.coursesetting.controller.CourseSettingGridControl
     else {
       Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, '请选择一个课程类型!');
     }
-  },
-  /*createItemSelectorUserStore: function (data) {
-    return Ext.create('kalix.admin.user.store.UserStore', {
-        pageSize: 0,
-        proxyUrl: CONFIG.restRoot + '/camel/rest/orgs/'+data.orgid+'/users',
-        autoLoad:true
-      }
-    );
-  },*/
+  }
   /*onCourseTypeColumnRender: function() {
     var typestore = Ext.create('kalix.store.BaseStore');
     typestore.proxyUrl = CONFIG.restRoot + '/camel/rest/coursetypes/';

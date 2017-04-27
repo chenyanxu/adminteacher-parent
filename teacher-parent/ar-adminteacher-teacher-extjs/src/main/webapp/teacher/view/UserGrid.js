@@ -87,10 +87,10 @@ Ext.define('kalix.adminteacher.teacher.view.UserGrid', {
       text: '状态',
       dataIndex: 'available',
       renderer: function (value) {
-        if (value != null && value == "1") {
-          return "启用";
+        if (value != null && value == '1') {
+          return '启用';
         }
-        return "停用";
+        return '停用';
       }
     },
     {
@@ -159,8 +159,7 @@ Ext.define('kalix.adminteacher.teacher.view.UserGrid', {
         }
       ]
     }
-  ]
-  ,
+  ],
   tbar: {
     xtype: 'securityToolbar',
     verifyItems: [
@@ -173,5 +172,4 @@ Ext.define('kalix.adminteacher.teacher.view.UserGrid', {
       }
     ]
   }
-
 });

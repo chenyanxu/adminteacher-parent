@@ -16,8 +16,8 @@
     }
 });*/
 
-Ext.define("kalix.adminteacher.coursesetting.view.CoursePic", {
-    extend : "Ext.Img",
+Ext.define('kalix.adminteacher.coursesetting.view.CoursePic', {
+    extend : 'Ext.Img',
     alias: 'widget.coursePic',
     xtype: 'coursePicImage',
     requires: ['kalix.Notify'],
