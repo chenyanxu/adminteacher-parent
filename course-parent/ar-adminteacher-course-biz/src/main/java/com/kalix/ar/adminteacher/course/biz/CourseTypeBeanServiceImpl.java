@@ -4,6 +4,7 @@ import com.kalix.ar.adminteacher.course.api.biz.ICourseTypeBeanService;
 import com.kalix.ar.adminteacher.course.api.dao.ICourseTypeBeanDao;
 import com.kalix.ar.adminteacher.course.dto.model.CourseTypeDTO;
 import com.kalix.ar.adminteacher.course.entities.CourseTypeBean;
+import com.kalix.ar.adminteacher.course.util.CodeUtil;
 import com.kalix.ar.adminteacher.course.util.Compare;
 import com.kalix.framework.core.api.persistence.JsonStatus;
 import com.kalix.framework.core.impl.biz.ShiroGenericBizServiceImpl;
@@ -97,11 +98,20 @@ public class CourseTypeBeanServiceImpl extends ShiroGenericBizServiceImpl<ICours
             return false;
         }
         // 校验课程类型代码
-        beans = dao.findByCode(0L, entity.getCode());
+        /*beans = dao.findByCode(0L, entity.getCode());
         if (beans != null && beans.size() > 0) {
             status.setSuccess(false);
             status.setMsg(FUNCTION_NAME + "代码已经存在！");
             return false;
+        }*/
+        String code = CodeUtil.createCode(ICourseTypeBeanDao.class, entity.getParentId(), 3L);
+        if (code.isEmpty()) {
+            status.setSuccess(false);
+            status.setMsg(FUNCTION_NAME + "代码生成错误！");
+            return false;
+        }
+        else {
+            entity.setCode(code);
         }
         return true;
     }
@@ -149,14 +159,16 @@ public class CourseTypeBeanServiceImpl extends ShiroGenericBizServiceImpl<ICours
      */
     @Transactional
     public void updateParent(Long parentId) {
-        // 获取父节点
-        CourseTypeBean parentBean = dao.get(parentId);
-        if (parentBean != null) {
-            // 获取父节点下的所有子节点
-            List<CourseTypeBean> children = dao.findByParentId(parentId);
-            if (children == null || children.isEmpty()) {
-                parentBean.setIsLeaf(1L);
-                dao.save(parentBean);
+        if (parentId != -1) {
+            // 获取父节点
+            CourseTypeBean parentBean = dao.get(parentId);
+            if (parentBean != null) {
+                // 获取父节点下的所有子节点
+                List<CourseTypeBean> children = dao.findByParentId(parentId);
+                if (children == null || children.isEmpty()) {
+                    parentBean.setIsLeaf(1L);
+                    dao.save(parentBean);
+                }
             }
         }
     }
