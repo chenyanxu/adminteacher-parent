@@ -4,9 +4,9 @@ import com.kalix.ar.adminteacher.course.api.biz.ICourseTypeBeanService;
 import com.kalix.ar.adminteacher.course.api.dao.ICourseTypeBeanDao;
 import com.kalix.ar.adminteacher.course.dto.model.CourseTypeDTO;
 import com.kalix.ar.adminteacher.course.entities.CourseTypeBean;
-import com.kalix.ar.adminteacher.course.util.CodeUtil;
 import com.kalix.ar.adminteacher.course.util.Compare;
 import com.kalix.framework.core.api.persistence.JsonStatus;
+import com.kalix.framework.core.impl.biz.CodeUtil;
 import com.kalix.framework.core.impl.biz.ShiroGenericBizServiceImpl;
 import com.kalix.framework.core.util.Assert;
 import org.dozer.DozerBeanMapper;
@@ -77,12 +77,12 @@ public class CourseTypeBeanServiceImpl extends ShiroGenericBizServiceImpl<ICours
             return false;
         }
         // 校验课程类型代码
-        beans = dao.findByCode(entity.getId(), entity.getCode());
+        /*beans = dao.findByCode(entity.getId(), entity.getCode());
         if (beans != null && beans.size() > 0) {
             status.setFailure(true);
             status.setMsg(FUNCTION_NAME + "代码已经存在！");
             return false;
-        }
+        }*/
         return true;
     }
 
@@ -104,7 +104,7 @@ public class CourseTypeBeanServiceImpl extends ShiroGenericBizServiceImpl<ICours
             status.setMsg(FUNCTION_NAME + "代码已经存在！");
             return false;
         }*/
-        String code = CodeUtil.createCode(ICourseTypeBeanDao.class, entity.getParentId(), 3L);
+        String code = CodeUtil.createCode(ICourseTypeBeanDao.class, entity.getParentId());
         if (code.isEmpty()) {
             status.setSuccess(false);
             status.setMsg(FUNCTION_NAME + "代码生成错误！");
@@ -199,7 +199,7 @@ public class CourseTypeBeanServiceImpl extends ShiroGenericBizServiceImpl<ICours
             if (isUpdate(entity, jsonStatus)) {
                 CourseTypeBean oldCourseType = dao.get(entity.getId());
                 oldCourseType.setName(entity.getName());
-                oldCourseType.setCode(entity.getCode());
+                /*oldCourseType.setCode(entity.getCode());*/
                 oldCourseType.setUpdateBy(shiroService.getCurrentUserLoginName());
                 dao.save(oldCourseType);
                 jsonStatus.setSuccess(true);

@@ -30,8 +30,8 @@ Ext.define('kalix.adminteacher.coursetype.view.CourseTypeForm', {
             bind:{
                 value:'{rec.name}'
             }
-        },
-        {
+        }
+        /*{
             fieldLabel: '课程类型代码',
             name: 'code',
             allowBlank: false,
@@ -39,6 +39,6 @@ Ext.define('kalix.adminteacher.coursetype.view.CourseTypeForm', {
             bind:{
                 value:'{rec.code}'
             }
-        }
+        }*/
     ]
 });
